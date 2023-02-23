@@ -14,7 +14,7 @@ public class P82 {
 			grade = "B";
 		} else {
 			grade = "F";
-		}*/
+		} ...*/
 		
 		String grade = (score>=90) ? "A": (score>=80) ? "B" : "F";
 		System.out.println(grade);
