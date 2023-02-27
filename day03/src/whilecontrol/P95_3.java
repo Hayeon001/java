@@ -32,4 +32,5 @@ public class P95_3 {
 	    System.out.println("End.."+cnt);
 
 	}
-}
+	}
+
