@@ -6,6 +6,8 @@ public class Car { //클래스에 의해 생성된 자동차의 속성
 	public int size;
 	
 	//생성자. Constructor. 
+	//default constructor가 없을 경우 public Car() {} 알아서 만들어서 사용. 
+	
 	public Car() {  //class명칭과 동일하게 생겼음
 		this.name = "k1";
 		this.color =  "red";
