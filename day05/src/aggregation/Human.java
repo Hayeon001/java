@@ -39,12 +39,12 @@ public class Human {
 		return "Human [name=" + name + ", car=" + car + "]";
 	}
 
-	public void drive() {
-		car.go();
-	}
-	public void stopCar() {
-		car.stopCar();
-	}
+//	public void drive() {
+//		car.go();
+//	}
+//	public void stopCar() {
+//		car.stopCar();
+//	}
 	
 
 }

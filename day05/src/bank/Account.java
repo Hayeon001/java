@@ -55,6 +55,6 @@ public class Account {
 			return;
 		}
 		//this.balance = this.balance + money;
-		this.balance += money;
+		this.balance -= money;
 	}
 }

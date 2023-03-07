@@ -34,7 +34,7 @@ public class App2 {
 			} else if (cmd.equals("s")) {
 				System.out.println("Select :"); //조회하기
 				System.out.println(acc);
-			}
+			} 
 		}
 		sc.close();
 

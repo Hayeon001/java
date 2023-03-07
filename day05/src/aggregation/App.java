@@ -10,8 +10,8 @@ public class App {
 		human.setCar(car);
 		System.out.println(human);
 	
-		human.drive();
-		human.stopCar();
+//		human.drive();
+//		human.stopCar();
 	
 	}
 

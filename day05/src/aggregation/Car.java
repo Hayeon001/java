@@ -27,10 +27,10 @@ public class Car { //클래스에 의해 생성된 자동차의 속성
 		return "Car [name=" + name + ", color=" + color + ", size=" + size + "]";
 	}
 
-	public void drive() {
-		car.go();
-	}
-	public void stopCar() {
-		car.stop();
-	}
+//	public void drive() {
+//		car.go();
+//	}
+//	public void stopCar() {
+//		car.stop();
+//	}
 }
