@@ -49,10 +49,12 @@ public class App {
 			if(arrAcc[i].getGrade().equals("VIP")) {
 				vipsum += arrAcc[i].getBalance();
 				cnt++;
+				//System.out.println(arrAcc[i].);
 			}
 		
 		}
 		avg = vipsum / (cnt * 1.0);
-		System.out.printf("%d, %4.2f", vipsum, avg);	}
-
+		
+		System.out.printf("VIP고객 잔액 합은 %d 원, 평균은 %4.2f 원입니다", vipsum, avg);
+		}
 }
