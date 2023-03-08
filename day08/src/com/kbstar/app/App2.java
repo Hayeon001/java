@@ -32,7 +32,7 @@ public class App2 {
 				String name = sc.next();
 				System.out.println("Input PRICE ...");
 				double price = Double.parseDouble(sc.next());
-				System.out.println("Input ID ...");
+				System.out.println("Input QUANTITY ...");
 				int qt = Integer.parseInt(sc.next());
 				ItemDTO item = new ItemDTO(id, name, price, qt);
 				service.register(item);
