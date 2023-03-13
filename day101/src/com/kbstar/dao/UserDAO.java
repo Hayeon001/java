@@ -46,6 +46,9 @@ public class UserDAO implements DAO<String,UserDTO> {
 	@Override
 	//id 넣으면 UserDTO 줘
 	public UserDTO select(String k) throws Exception {
+		if(!db.containsKey(k)) {  //k값이 없으면 예외상황. 있으면 삭제
+			throw new Exception();
+		}
 		UserDTO user = null;
 		user = db.get(k);
 		return user;
@@ -53,6 +56,9 @@ public class UserDAO implements DAO<String,UserDTO> {
 
 	@Override
 	public List<UserDTO> select() throws Exception {
+//		if(!db.containsKey(k)) {
+//			throw new Exception();
+//		}
 		//ArrayList 만들어서 보내줘야함
 		ArrayList<UserDTO> list = new ArrayList<UserDTO>();
 		Collection<UserDTO> col = db.values();

@@ -27,6 +27,7 @@ public class App {
 				System.out.println("Input NAME ...");
 				String name = sc.next();
 				UserDTO user = new UserDTO(id, pwd, name);
+				//userDao.insert(user);
 				try {
 					userDao.insert(user);
 				} catch (Exception e) {
@@ -72,7 +73,7 @@ public class App {
 						System.out.println(u);
 					}
 				}catch (Exception e) {
-					
+					System.out.println("데이터가 존재하지 않습니다.");
 				}
 			}
 		}
