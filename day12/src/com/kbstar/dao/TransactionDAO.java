@@ -5,21 +5,22 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
+import com.kbstar.dto.AccountDTO;
 import com.kbstar.dto.TransactionDTO;
 import com.kbstar.frame.DAO;
 
-public class TransactionDAO implements DAO<String, TransactionDTO>{
+public class TransactionDAO implements DAO<String, TransactionDTO> {
 
 	HashMap<String, TransactionDTO> db;
-	
+
 	public TransactionDAO() {
-		
+
 		db = new HashMap<String, TransactionDTO>();
 	}
-	
+
 	@Override
 	public void insert(TransactionDTO v) throws Exception {
-		if(db.containsKey(v.getDate())) {
+		if (db.containsKey(v.getDate())) {
 			throw new Exception("DB Error");
 		}
 		db.put(v.getDate(), v);
@@ -27,12 +28,12 @@ public class TransactionDAO implements DAO<String, TransactionDTO>{
 
 	@Override
 	public void delete(String k) throws Exception {
-		
+
 	}
 
 	@Override
 	public void update(TransactionDTO v) throws Exception {
-			
+
 	}
 
 	@Override
@@ -45,18 +46,29 @@ public class TransactionDAO implements DAO<String, TransactionDTO>{
 	@Override
 	public List<TransactionDTO> select() throws Exception {
 		List<TransactionDTO> list = new ArrayList<TransactionDTO>();
-		Collection<TransactionDTO> col =  db.values();
-		for(TransactionDTO obj: col) {
+		Collection<TransactionDTO> col = db.values();
+		for (TransactionDTO obj : col) {
 			list.add(obj);
 		}
 		return list;
 	}
 
-	//고객이 보유하고 있는 계좌번호 입력하면 해당계좌 거래내역 조회
+	// 고객이 보유하고 있는 계좌번호 입력하면 해당계좌 거래내역 조회
 	@Override
 	public List<TransactionDTO> search(Object obj) throws Exception {
 		// App의 a서비스 구현 가능
-		return null;
-	}
+		// 모든 거래내역을 꺼내라. 해당하는 id가 obj와 같은것만
 
+		List<TransactionDTO> list = new ArrayList<TransactionDTO>();
+		Collection<TransactionDTO> col = db.values();
+
+		for (TransactionDTO tr : col) {
+			// 계좌 중에서 id와 obj가 같은것들만
+			if ((tr.getAccNo()).equals(obj)) {
+				list.add(tr);
+			}
+
+		}
+		return list;
+	}
 }

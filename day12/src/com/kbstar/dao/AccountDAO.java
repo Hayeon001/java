@@ -62,8 +62,21 @@ public class AccountDAO implements DAO<String, AccountDTO>{
 	//Object obj = new String(); 형태도 가능하기에 id에 String 가능
 	@Override
 	public List<AccountDTO> search(Object obj) throws Exception {
-		// 내 계좌 조회
-		return null;
+		// obj의 계좌를 찾아서 list에 담아 반환
+		List<AccountDTO> list = new ArrayList<AccountDTO>();
+		Collection<AccountDTO> col = db.values();
+		
+//		for (AccountDTO acc : col) {
+//			list.add(acc);
+//		}
+		for (AccountDTO acc : col) {
+			//계좌 중에서 id와 obj가 같은것들만
+			if((acc.getHolder()).equals(obj)) {
+				list.add(acc);
+			}
+			
+		}
+ 		return list;
 	}
 
 }
