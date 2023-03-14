@@ -9,7 +9,7 @@ public class ItemInsertTest {
 	public static void main(String[] args) {
 		CRUDService<String, Item> itemService = new ItemCRUDServiceImpl();
 
-		Item item = new Item("pants", 20000, 3.2);
+		Item item = new Item("jacket", 120000, 2.2);
 		try {
 			itemService.register(item);
 			System.out.println("성공");

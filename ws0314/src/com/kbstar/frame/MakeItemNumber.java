@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class MakeItemNumber {
 	public static int cnt = 100;
-	public static int cnt2 = 100;
+	public static int cnt1 = 100;
 	public static String makeItemNum() {
 		String itemNum = "";
 		Calendar cal = Calendar.getInstance();
@@ -12,8 +12,8 @@ public class MakeItemNumber {
 		            + (cal.get(Calendar.MONTH)+1)
 		            + cal.get(Calendar.DAY_OF_MONTH)
 		            + cal.get(Calendar.MILLISECOND)
-		            + cnt2;
-		cnt2++;
+		            + cnt1;
+		cnt1++;
 		return itemNum;
 	}
 	public static String makeCartNum() {
@@ -22,6 +22,7 @@ public class MakeItemNumber {
 		cartNum = "" + cal.get(Calendar.YEAR)
 		            + (cal.get(Calendar.MONTH)+1)
 		            + cal.get(Calendar.DAY_OF_MONTH)
+		            + cal.get(Calendar.MILLISECOND)
 		            + cnt;
 		cnt++;
 		return cartNum;

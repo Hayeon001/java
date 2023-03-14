@@ -4,24 +4,27 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.SQLRecoverableException;
 import java.util.List;
 
-import com.kbstar.dao.CustDaoImpl;
-import com.kbstar.dto.Cust;
+import com.kbstar.dao.CartDaoImpl;
+import com.kbstar.dto.Cart;
 import com.kbstar.frame.CRUDService;
 import com.kbstar.frame.DAO;
+import com.kbstar.frame.MakeItemNumber;
 
-public class CustCRUDServiceImpl implements CRUDService<String, Cust>{
+public class CartCRUDServiceImpl implements CRUDService<String, Cart>{
 
-	DAO<String, String, Cust> dao;
+	DAO<String, String, Cart> dao;
 	
-	public CustCRUDServiceImpl() {
-		dao = new CustDaoImpl();
+	public CartCRUDServiceImpl() {
+		dao = new CartDaoImpl();
 	}
 
 	@Override
-	public void register(Cust v) throws Exception {
+	public void register(Cart v) throws Exception {
 		// 데이터 검증
 		// DB입력
 		try {
+			String id = MakeItemNumber.makeCartNum();
+			v.setId(id);
 			dao.insert(v);
 		}catch(Exception e) {
 			if (e instanceof SQLIntegrityConstraintViolationException) {
@@ -49,13 +52,14 @@ public class CustCRUDServiceImpl implements CRUDService<String, Cust>{
 	}
 
 	@Override
-	public void modify(Cust v) throws Exception {
+	public void modify(Cart v) throws Exception {
 		try{
 			dao.update(v);
 		}catch(Exception e) {
 			if(e instanceof SQLRecoverableException) {
 				throw new Exception("시스템 장애");
 			}else {
+				e.printStackTrace();
 				throw new Exception("해당 ID가 존재하지 않습니다.");
 			}
 		}
@@ -64,10 +68,10 @@ public class CustCRUDServiceImpl implements CRUDService<String, Cust>{
 	}
 	
 	@Override
-	public Cust get(String k) throws Exception {
-		Cust cust = null;
+	public Cart get(String k) throws Exception {
+		Cart cart = null;
 		try {
-			cust = dao.select(k);
+			cart = dao.select(k);
 		}catch(Exception e) {
 			if(e instanceof SQLRecoverableException) {
 				throw new Exception("시스템 장애입니다.");
@@ -75,12 +79,12 @@ public class CustCRUDServiceImpl implements CRUDService<String, Cust>{
 				throw new Exception("ID가 존재하지않습니다.");
 			}
 		}
-		return cust;
+		return cart;
 	}
 
 	@Override
-	public List<Cust> get() throws Exception {
-		List<Cust> list = null;
+	public List<Cart> get() throws Exception {
+		List<Cart> list = null;
 		try {
 			list = dao.selectAll();
 		}catch(Exception e) {

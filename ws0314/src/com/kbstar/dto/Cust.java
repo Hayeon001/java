@@ -5,6 +5,7 @@ public class Cust {
 	private String pwd;
 	private String name;
 	private int age;
+	
 	public Cust() {
 	}
 	public Cust(String id, String pwd, String name, int age) {
