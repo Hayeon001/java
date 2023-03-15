@@ -38,21 +38,23 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 //		con = DriverManager.getConnection(url, id, pwd);
 //		return con;
 
-	public Connection getConnection() throws Exception {
-		Connection con = null;
-
-		// 소스가 달라져도 수정 가능하도록 만드는 방법 : properties
-		Properties props = new Properties();
-		String fileName = "db_info.txt";
-		FileInputStream in = new FileInputStream(fileName);
-		props.load(in);
-		String id = props.getProperty("DB_ID");
-		String pwd = props.getProperty("DB_PWD");
-		String url = props.getProperty("DB_URL");
-		con = DriverManager.getConnection(url, id, pwd);
-		return con;
-
-	}
+	
+	//DAO로 올려버리기
+//	public Connection getConnection() throws Exception {
+//		Connection con = null;
+//
+//		// 소스가 달라져도 수정 가능하도록 만드는 방법 : properties
+//		Properties props = new Properties();
+//		String fileName = "db_info.txt";
+//		FileInputStream in = new FileInputStream(fileName);
+//		props.load(in);
+//		String id = props.getProperty("DB_ID");
+//		String pwd = props.getProperty("DB_PWD");
+//		String url = props.getProperty("DB_URL");
+//		con = DriverManager.getConnection(url, id, pwd);
+//		return con;
+//
+//	}
 
 	@Override
 	public void insert(Cust v) throws Exception {
@@ -157,8 +159,8 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 			if(list.size() == 0) {
 				throw new Exception("없음");
 			}
-		} catch (Exception e1) {
-			throw e1;
+		} catch (Exception e) {
+			throw e;
 		} 
 		
 		return list;
